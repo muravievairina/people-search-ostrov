@@ -1,5 +1,6 @@
 from piplapis.search import SearchAPIRequest, SearchAPIError
 
+PIPL_KEY = ''
 
 def run_request(data):
     request = SearchAPIRequest(**data, api_key="BUSINESS-PREMIUM-DEMO-mrj134eaxoapqgdjau16fj9c")
