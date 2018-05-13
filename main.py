@@ -18,7 +18,7 @@ def print_person(p):
     print('Name:', p.names[0].display if 'names' in ks else 'n/a')
     print('EMail:', p.emails if 'emails' in ks else 'n/a')
     print('Gender:', p.gender if 'gender' in ks else 'n/a')
-    print('Username:', ", ".join(map(lambda x: str(x.usernames), p.phones)) if 'usernames' in ks else 'n/a')
+    print('Username:', ", ".join(map(lambda x: str(x.display), p.usernames)) if 'usernames' in ks else 'n/a')
     print('Phone:', ", ".join(map(lambda x: str(x.display), p.phones)) if 'phones' in ks else 'n/a')
     print('Address:', ", ".join(map(lambda x: str(x.display), p.addresses)) if 'addresses' in ks else 'n/a')
     print('Education:', ", ".join(map(lambda x: str(x.display), p.educations)) if 'educations' in ks else 'n/a')
@@ -42,6 +42,7 @@ def main():
         x = input("Tell us the %s: " % i)
         if len(x) > 0 and x.strip() != '':
             data[i] = x
+    print("\nRunning request...")
     res = run_request(data)
     l = len(res.possible_persons)
     print("\n\nWe found %d persons\n\n" % l)
